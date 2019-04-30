@@ -1,4 +1,5 @@
 var wall_proxy = "SOCKS5 127.0.0.1:8100;SOCKS5 127.0.0.1:10808;SOCKS5 127.0.0.1:9758";
+var  omp_proxy="SOCKS5 127.0.0.1:9758";
 var nowall_proxy = "DIRECT;";
 var direct = "DIRECT;";
 var ip_proxy = "DIRECT;";
@@ -80,6 +81,9 @@ function getProxyFromIP(strIp) {
 }
 function FindProxyForURL(url, host) {
     debugger;
+    if(host=="http://10.252.184.97:9080"){
+    return omp_proxy;
+    }
 	if ( isPlainHostName(host) === true ) {
 		return direct;
 	}
